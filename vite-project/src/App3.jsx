@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import './App.css';
 
 function App() {
-  const mayur = 'unused var';
+  // const mayur = 'unused var';
   const dropTargetDivs = [
     { id: 'tostart', title: 'To Start', color: 'purple' },
     { id: 'progress', title: 'Progress', color: 'blue' },
