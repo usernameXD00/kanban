@@ -9,24 +9,31 @@ on:
 
 # define a job(multiple jobs also)
 jobs:
+  # defines a job named build-and-lint
   build-and-lint:
+    # runs-on: ubuntu-latest means it’ll execute inside a fresh Ubuntu Linux VM in GitHub’s cloud runner
     runs-on: ubuntu-latest
 
     steps:
+      # This clones your GitHub repository into the runner’s workspace
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      # Installs Node.js v20 on the runner
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
       - name: Install frontend deps
+        # changes directory into your vite-project folder
         working-directory: vite-project
+        # installs dependencies exactly as listed in package-lock.json
         run: npm ci
 
       - name: Lint frontend
         working-directory: vite-project
+        # If there’s any warning or error, the workflow fails
         run: npm run lint -- --max-warnings=0
 
       - name: Build frontend Docker image
