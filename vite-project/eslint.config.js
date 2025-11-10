@@ -20,8 +20,8 @@ export default [
     rules: {
       semi: 'error',
       'no-unused-vars': 'warn',
-      'react/jsx-uses-react': 'off', // For React 17+
-      'react/jsx-uses-vars': 'warn', // Marks JSX vars as used
+      'react/jsx-uses-react': 'off',
+      'react/jsx-uses-vars': 'warn',
     },
   },
 ];
