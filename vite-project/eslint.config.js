@@ -1,18 +1,27 @@
+import reactPlugin from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+
 export default [
   {
-    files: ['**/*.{js,jsx}'], //only check .js files in server directory
+    files: ['**/*.{js,jsx}'],
     languageOptions: {
-      ecmaVersion: 2020,
-      sourceType: 'module',
       parserOptions: {
-        ecmaFeatures: {
-          jsx: true, // ✅ enable JSX parsing
-        },
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        ecmaFeatures: { jsx: true },
       },
     },
+    plugins: {
+      react: reactPlugin,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+    },
     rules: {
-      semi: 'error', //force semicolons
-      'no-unused-vars': 'warn', //warn if variables are unused
+      semi: 'error',
+      'no-unused-vars': 'warn',
+      'react/jsx-uses-react': 'off', // For React 17+
+      'react/jsx-uses-vars': 'warn', // Marks JSX vars as used
     },
   },
 ];
