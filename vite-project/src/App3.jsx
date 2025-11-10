@@ -1,38 +1,39 @@
-import { useMemo, useState } from "react";
-import "./App.css";
+import { useMemo, useState } from 'react';
+import './App.css';
 
 function App() {
+  const mayur = 'unused var';
   const dropTargetDivs = [
-    { id: "tostart", title: "To Start", color: "purple" },
-    { id: "progress", title: "Progress", color: "blue" },
-    { id: "review", title: "Review", color: "#cece0a" },
-    { id: "completed", title: "Completed", color: "green" },
+    { id: 'tostart', title: 'To Start', color: 'purple' },
+    { id: 'progress', title: 'Progress', color: 'blue' },
+    { id: 'review', title: 'Review', color: '#cece0a' },
+    { id: 'completed', title: 'Completed', color: 'green' },
   ];
   const [tasklist, setTaskList] = useState([
     {
-      id: "header ui",
-      title: "header ui",
-      status: "tostart",
+      id: 'header ui',
+      title: 'header ui',
+      status: 'tostart',
     },
     {
-      id: "api documentation",
-      title: "api documentation",
-      status: "tostart",
+      id: 'api documentation',
+      title: 'api documentation',
+      status: 'tostart',
     },
     {
-      id: "registeration api development",
-      title: "registeration api development",
-      status: "tostart",
+      id: 'registeration api development',
+      title: 'registeration api development',
+      status: 'tostart',
     },
     {
-      id: "stress testing",
-      title: "stress testing",
-      status: "tostart",
+      id: 'stress testing',
+      title: 'stress testing',
+      status: 'tostart',
     },
     {
-      id: "Bug resolving",
-      title: "Bug resolving",
-      status: "tostart",
+      id: 'Bug resolving',
+      title: 'Bug resolving',
+      status: 'tostart',
     },
   ]);
 
@@ -50,11 +51,11 @@ function App() {
   }, [tasklist]);
 
   const handleDragStart = (e, task) => {
-    e.dataTransfer.setData("application/json", JSON.stringify(task));
+    e.dataTransfer.setData('application/json', JSON.stringify(task));
   };
 
   const handleDrop = (e, divId) => {
-    let task = JSON.parse(e.dataTransfer.getData("application/json"));
+    let task = JSON.parse(e.dataTransfer.getData('application/json'));
     setTaskList((prev) => {
       //explicit return when curly bracket used
       return prev.map(
@@ -77,11 +78,11 @@ function App() {
           <div className="flex flex-col gap-5">
             {kanbanMap[divEle.id].map((task) => (
               <div
-                draggable={divEle.id !== "completed"}
+                draggable={divEle.id !== 'completed'}
                 onDragStart={(e) => handleDragStart(e, task)}
                 className="border border-black w-[90%] m-auto"
                 style={{
-                  background: divEle.id === "completed" ? "#d2d2d2" : "white",
+                  background: divEle.id === 'completed' ? '#d2d2d2' : 'white',
                   border: `1px solid ${divEle.color}`,
                 }}
                 key={task.id}
