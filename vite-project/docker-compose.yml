@@ -1,0 +1,11 @@
+# services:
+#   backend:
+#     build: ./java-practice
+#     container_name: backend
+#     restart: always
+#     ports:
+#       - "8080:8080"
+
+#       #docker-compose up --build
+#       #docker-compose down
+#       #docker-compose log backend

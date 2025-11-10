@@ -1,0 +1,9 @@
+services:
+  kanban:
+    build: ./vite-project
+    container_name: kanban
+    ports:
+      - "3000:5555"
+        #docker-compose up --build
+        #docker-compose down
+        #docker-compose logs kanban
