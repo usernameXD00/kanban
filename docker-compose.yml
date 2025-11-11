@@ -1,9 +1,13 @@
 services:
   kanban:
-    build: ./vite-project
-    container_name: kanban
+    build: ./vite-project #docker build -t kanban-img ./vite-project
+    image: kanban-img
+    container_name: kanban-container #docker run -d -p 3000:5555 --name kanban-container --env-file ./vite-project/.env kanban-img
+
     ports:
       - "3000:5555"
+    # env_file:
+    #   - ./vite-project/.env
 #docker-compose up --build
 #docker-compose down
 #docker-compose logs kanban
